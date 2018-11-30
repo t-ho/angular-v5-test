@@ -4,8 +4,17 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
-import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { NgxUiLoaderModule, NgxUiLoaderConfig, POSITION, SPINNER, PB_DIRECTION } from 'ngx-ui-loader';
 
+const ngxUiLoaderConfig: NgxUiLoaderConfig = {
+  fgsColor: 'red',
+  fgsPosition: POSITION.bottomCenter,
+  fgsSize: 40,
+  fgsType: SPINNER.ballSpin,
+  pbDirection: PB_DIRECTION.rightToLeft,
+  pbThickness: 5,
+  pbColor: 'red'
+};
 
 @NgModule({
   declarations: [
@@ -14,7 +23,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgxUiLoaderModule
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
